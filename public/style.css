@@ -1,0 +1,122 @@
+/* Basic tokens + light/dark theme */
+:root {
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --shadow-1: 0 10px 30px rgba(0,0,0,.12);
+  --shadow-2: 0 12px 36px rgba(0,0,0,.18);
+  /* Light */
+  --bg: #f7f8fb;
+  --panel: #ffffff;
+  --ink: #0f172a;
+  --ink-subtle: #475569;
+  --border: #e6e8ee;
+  --accent: #2f66ff;
+  --accent-2: #6e8dff;
+  --code-bg: #f1f3fa;
+}
+.theme-dark {
+  /* Dark */
+  --bg: #0e1117;
+  --panel: #111827;
+  --ink: #e5e7eb;
+  --ink-subtle: #94a3b8;
+  --border: #1f2a3a;
+  --accent: #6ea8ff;
+  --accent-2: #93bdff;
+  --code-bg: #0b1220;
+}
+
+/* Layout + type */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", Arial;
+  color: var(--ink);
+  background: var(--bg);
+}
+.container { max-width: 900px; margin: 0 auto; padding: 16px; }
+.header, .footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.footer { opacity: .8; justify-content: center; padding-block: 20px; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.logo {
+  width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+  font-size: 22px; background: var(--panel); border: 1px solid var(--border); box-shadow: var(--shadow-1);
+}
+.titles h1 { margin: 0 0 2px; font-size: 20px; letter-spacing: .2px; }
+.subtitle { margin: 0; color: var(--ink-subtle); font-size: 14px; }
+.main { display: grid; gap: 18px; }
+
+/* Cards */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+  padding: 16px;
+}
+.card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.card h2 { margin: 0; font-size: 18px; }
+
+/* Buttons */
+.btn {
+  appearance: none; border: none; cursor: pointer;
+  padding: 10px 14px; border-radius: 12px; font-weight: 700;
+  background: var(--accent); color: #fff;
+  box-shadow: 0 8px 20px rgba(47,102,255,.25);
+  transition: transform .05s ease, filter .18s ease, box-shadow .2s ease;
+  letter-spacing: .2px;
+}
+.btn:hover { filter: brightness(1.06); box-shadow: 0 10px 26px rgba(47,102,255,.28); }
+.btn:active { transform: translateY(1px); }
+.btn.secondary { background: linear-gradient(180deg, var(--accent-2), var(--accent)); }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--border); box-shadow: none; }
+.btn.ghost:hover { background: rgba(127,127,127,.06); }
+button:focus { outline: 3px solid rgba(120,160,255,.4); outline-offset: 2px; border-radius: 12px; }
+
+/* Output block */
+.code {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  min-height: 42px;
+  overflow: auto;
+  margin: 0;
+  font-size: 13px;
+  text-align: left;
+}
+
+/* Verse card */
+.verse-card { box-shadow: var(--shadow-2); }
+.actions { display: flex; gap: 8px; }
+.verse { display: grid; gap: 8px; }
+
+/* Bigger Arabic, proper RTL */
+.ar {
+  font-size: 30px;
+  line-height: 2.2;
+  text-align: right;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.en { font-size: 17px; color: var(--ink); }
+
+/* Centering + color accents */
+.center { display: grid; justify-items: center; text-align: center; }
+.main { justify-items: center; }
+.card { width: min(820px, 100%); }
+.brand-gradient { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.accent-ar { color: #2aa198; }  /* teal for Arabic */
+.accent-en { color: #4860ff; }  /* indigo for English */
+
+/* Meta chips */
+.meta { display: flex; gap: 10px; flex-wrap: wrap; color: var(--ink-subtle); font-size: 14px; }
+.chips { gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; padding: 6px 10px;
+  border-radius: 999px; border: 1px solid var(--border);
+  background: var(--code-bg); color: var(--ink); font-size: 13px;
+}
+.theme-dark .chip { background: #0f1628; }
+.chip.soft { opacity: .9; background: transparent; }
